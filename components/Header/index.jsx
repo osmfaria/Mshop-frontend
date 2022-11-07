@@ -3,11 +3,16 @@ import Link from "next/link"
 import {SectionAll,SectionLi,Img,SectionButton,Div} from "./styles"
 import { useState } from "react"
 import {ModalHeader} from "../ModalHeader"
+import  AuthContext  from "../../Context/AuthContext"
+import { useContext } from "react"
 
 export const Header = () => {
 
-    const [authenticated,setAuthenticated] = useState(true)
+   
+
+    // const [authenticated,setAuthenticated] = useState(true)
     const [modal,setModal] = useState(false)
+    const {auth} = useContext(AuthContext)
 
     const modalActivate = () => {
         setModal(true)
@@ -34,7 +39,7 @@ export const Header = () => {
            </li>
           </ul>
           <div></div>
-          {authenticated === false ? <SectionButton><Link legacyBehavior href="/login"><h4>Fazer Login</h4></Link>
+          {auth === false ? <SectionButton><Link legacyBehavior href="/login"><h4>Fazer Login</h4></Link>
           <Link href="/cadastrar"><Button type="outline2" size="md">Cadastrar</Button></Link>
           </SectionButton>
           : 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SectionAll = styled.section`
+export const SectionAll = styled.nav`
 height:80px;
 border-bottom:1px solid #DEE2E6;
 
