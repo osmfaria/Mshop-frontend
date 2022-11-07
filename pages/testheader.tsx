@@ -1,5 +1,7 @@
+import {Header} from "../components/Header"
+
 const testheader = () => {
-  return <h1>header</h1>
+  return <Header/>
 }
 
 export default testheader
