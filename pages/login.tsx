@@ -11,6 +11,7 @@ import Button from "../components/Button"
 import Link from "next/link"
 import {Input} from "../components/Input"
 import { SectionAll } from '../styles/login'
+import UserContext from "../Context/UserContext"
 
 const Login =  () => {
 
@@ -21,7 +22,10 @@ const Login =  () => {
 
     const {register,handleSubmit,formState: {errors}} = useForm({resolver:yupResolver(schema)});
     const {setAuth} = useContext(AuthContext)
+    
+    
     const navigate = useRouter()
+
 
     const submit =  (data: any) => {
          motorsApi.post(`login`,data)
@@ -31,16 +35,19 @@ const Login =  () => {
             localStorage.setItem("token",token)
             localStorage.setItem("email",email)
             setAuth(true)
+            
             toast.success("Login efetuado com sucesso")
-            navigate.push("/users")
+            navigate.push("/testheader")
 
 
         }))
         .catch((err => {
             toast.error("Email ou senha invalidos")
+            console.log(err)
            
         }))
     }
+
     return (
         <>
             <Header />

@@ -108,6 +108,14 @@ const hoverBorderColors = {
   brandDisable: `${theme.colors.brand3}`,
 }
 
+export const StyledSpan = styled.span`
+
+  color:red;
+  margin-top:10px;
+
+
+`
+
 export const StyledInput = styled.input`
   padding: ${(props) => props.theme.input[props.size].padding};
   font-size: ${(props) => props.theme.input[props.size].fontSize};
@@ -123,6 +131,10 @@ export const StyledInput = styled.input`
     background-color: ${({ type }) => hoverBackgroundColors[type]};
     border: 1.5px solid ${({ type }) => hoverBorderColors[type]};
   }
+
+
+
+
 `
 
 
