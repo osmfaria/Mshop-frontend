@@ -19,14 +19,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "Context/UserContext.js",
-    "Context/UserContext.js"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "services/api.js", "pages/home.js"],
+  "exclude": ["node_modules"]
 }

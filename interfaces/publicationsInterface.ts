@@ -1,14 +1,13 @@
-const Vehicle_Type: {
-  CAR: 'CAR'
-  MOTORCYCLE: 'MOTORCYCLE'
-} = {
-  CAR: 'CAR',
-  MOTORCYCLE: 'MOTORCYCLE',
+export declare type Image = {
+  id: string
+  link: string
 }
 
-type Vehicle_Type = typeof Vehicle_Type[keyof typeof Vehicle_Type]
+export interface UserProp {
+  name: string
+}
 
-export type Publication = {
+export declare type Publication = {
   id: string
   type: string
   title: string
@@ -16,11 +15,13 @@ export type Publication = {
   milieage: number
   price: number
   description: string
-  vehicle_type: Vehicle_Type
+  vehicle_type: string
   is_active: boolean
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
   userId: string
+  Image: Image[]
+  user: UserProp
 }
 
 export declare type IPublication = {
@@ -30,6 +31,11 @@ export declare type IPublication = {
   results: Publication[]
 }
 
-export declare type IGetPulications = {
+export declare type PublicationProp = {
   publications: IPublication
+}
+
+export declare type CardProp = {
+  publication: Publication
+  innerRef?: (node: HTMLDivElement | null) => void
 }
