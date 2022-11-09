@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const SectionAll = styled.nav`
 height:80px;
 border-bottom:1px solid #DEE2E6;
-
+overflow:hidden;
 `
 
 export const SectionButton = styled.section`
@@ -35,6 +35,7 @@ a{
     font-size:16px;
     color:#495057;
     font-family: 'Inter'
+    
     
 }
 

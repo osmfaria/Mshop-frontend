@@ -2,30 +2,40 @@ import {createContext,React,useEffect,useState} from "react"
 import { motorsApi } from "../services/api"
 import jwt_decode from 'jwt-decode';
 
-
  const UserContext = createContext()
 
 export const UserProvider =  ({children}) => {
 
-    const [user,setUser] = useState()
 
-    useEffect(() => {
-        const jwtToken = localStorage.getItem("token")  ;
-        if (jwtToken !== "undefined") {
-            const decode = jwt_decode(jwtToken)
-            motorsApi.get(`/users/${decode.id}`,{
-                headers: {
-                    'Authorization': `Bearer ${jwtToken}`
-                 }
-            })
-            .then((res) => console.log(setUser(res.data)))
-            .catch((err) => console.log(err))
-          }
-    }, [])
+    const [user,setUser] = useState()
+    const [letter,setLetter] = useState()
+
+   useEffect(() => {
+    
+    const token = localStorage.getItem('token')
+    const user_id = localStorage.getItem('user_id')
+    
+    console.log(user_id,"dadsdsadsa")
+
+    if(user_id !== undefined && user_id !== null){
+        motorsApi.get(`users/${user_id}`,{
+            headers: {
+                'Authorization': `Bearer ${token}`
+             }
+        }).then((res) => {
+            console.log(res.data,"dataaaaaaa")
+            const name = res.data.name.match(/\b(\w)/gi);
+            const letter1 = name[0]
+            const letter2 = name[1]
+            setLetter(letter1 + letter2)
+            setUser(res.data)})
+        .catch((err) => console.log(err))
+    }
+   },[])
 
     return (
         <>
-        <UserContext.Provider value={{user}} >{children}</UserContext.Provider>
+        <UserContext.Provider value={{user,letter}} >{children}</UserContext.Provider>
         </>
     )
 }

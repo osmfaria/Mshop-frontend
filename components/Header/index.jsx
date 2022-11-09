@@ -1,18 +1,31 @@
 import Button from "../Button"
 import Link from "next/link"
 import {SectionAll,SectionLi,Img,SectionButton,Div} from "./styles"
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import {ModalHeader} from "../ModalHeader"
 import  AuthContext  from "../../Context/AuthContext"
 import { useContext } from "react"
+import UserContext from "../../Context/UserContext"
 
 export const Header = () => {
 
-   
-
-    // const [authenticated,setAuthenticated] = useState(true)
     const [modal,setModal] = useState(false)
+
     const {auth} = useContext(AuthContext)
+    const {user} = useContext(UserContext)
+    console.log(user)
+    const letter = () => {
+
+            if(user !== undefined && user !== null){
+                const name = user.name.match(/\b(\w)/gi);
+                const letter1 = name[0]
+                const letter2 = name[1]
+                return letter1 + letter2
+            }
+          
+    
+        
+    }
 
     const modalActivate = () => {
         setModal(true)
@@ -46,16 +59,15 @@ export const Header = () => {
           <>
           <Div>
             <h2>
-                AN
+                {letter()}
             </h2>
             </Div>
-            <h6 onClick={modalActivate}>Adriano Nóbrega</h6>
+            {user !== undefined && user !== null ? <h6 onClick={modalActivate}>{user.name}</h6> : <h6>sem token</h6>}
+            
             {modal === true && <ModalHeader/>}
             
           </>
           }
-           
-           
        </SectionLi>
         </SectionAll>
 

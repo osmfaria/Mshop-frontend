@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 import {yupResolver} from "@hookform/resolvers/yup"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { Header } from "../components/Header"
 import AuthContext from "../Context/AuthContext"
@@ -11,7 +11,9 @@ import Button from "../components/Button"
 import Link from "next/link"
 import {Input} from "../components/Input"
 import { SectionAll } from '../styles/login'
-import UserContext from "../Context/UserContext"
+import jwt_decode from 'jwt-decode';
+import UserContext from '../Context/UserContext'
+
 
 const Login =  () => {
 
@@ -21,25 +23,23 @@ const Login =  () => {
     })
 
     const {register,handleSubmit,formState: {errors}} = useForm({resolver:yupResolver(schema)});
-    const {setAuth} = useContext(AuthContext)
+    // const {setAuth} = useContext(AuthContext)
+    // const {setUser} = useContext(UserContext)
     
     
     const navigate = useRouter()
 
+  
 
     const submit =  (data: any) => {
          motorsApi.post(`login`,data)
         .then((res => {
-            const {token} = res.data
-            const {email} = data
+        
+            const {token,id} = res.data
             localStorage.setItem("token",token)
-            localStorage.setItem("email",email)
-            setAuth(true)
-            
+            localStorage.setItem("user_id",id)
             toast.success("Login efetuado com sucesso")
-            navigate.push("/testheader")
-
-
+            navigate.push("/user")
         }))
         .catch((err => {
             toast.error("Email ou senha invalidos")

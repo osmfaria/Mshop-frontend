@@ -15,6 +15,7 @@ a{
     font-family: 'Inter';
     font-size: 16px;
     color:#495057;
+    cursor: pointer;
     
 
 }

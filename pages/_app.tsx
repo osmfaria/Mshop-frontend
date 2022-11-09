@@ -11,12 +11,14 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       
-      <AuthProvider>
+      
       <UserProvider>
+      <AuthProvider>
       <Component {...pageProps} />
+      </AuthProvider>
       </UserProvider>
       <ToastContainer/>
-      </AuthProvider>
+      
       
     </ThemeProvider>
   )
