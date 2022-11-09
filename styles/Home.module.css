@@ -126,4 +126,7 @@
   .logo img {
     filter: invert(1);
   }
+  #__next {
+    width: 50 px;
+  }
 }

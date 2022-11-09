@@ -34,6 +34,7 @@ export const theme = {
     random10: '#6100FF',
     random11: '#5700E3',
     random12: '#30007D',
+    light:"#FDFDFD",
   },
   button: {
     md: {
@@ -41,8 +42,18 @@ export const theme = {
       fontSize: '0.875rem',
     },
     bg: {
-      padding: '12px 28px',
+      padding: '12px 132.5px',
       fontSize: '1rem',
     }
+  },
+  input:{
+    md: {
+      padding: '12.5px 30px',
+      fontSize: '16px',
+    },
+    bg: {
+      padding: '28.6px 30px',
+      fontSize: '1rem',
+    },
   }
 }
