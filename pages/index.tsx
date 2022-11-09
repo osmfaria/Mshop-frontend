@@ -58,14 +58,23 @@ export default function Home(): ReactElement {
         </div>
       </div>
       <div className='products-section' ref={auctionSection}>
-        <div className='products-display'>
+        {/* <div className='products-display'>
           <h2>Auction</h2>
           <div className='carousel'>
-            {carPublications.map((publication) => (
-              <AuctionCard key={publication.id} publication={publication} />
+            {carPublications.map((publication, index) => (
+              <AuctionCard key={index} publication={publication} />
             ))}
           </div>
-        </div>
+        </div> */}
+        <Carousel
+          setLoading={setCarLoading}
+          getPublications={getPublicationsByCar}
+          publications={carPublications}
+          loading={carLoading}
+          hasMore={carHasMore}
+          innerRef={carSection}
+          title='Auction'
+        />
 
         <Carousel
           setLoading={setCarLoading}

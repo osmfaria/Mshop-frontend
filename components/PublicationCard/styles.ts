@@ -7,8 +7,13 @@ export const Container = styled.div`
   gap: 16px;
   max-width: 312px;
   padding-top: 152px;
-  /* width: max-content; */
-flex-shrink: 0;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+
+  @media (min-width: 500px) {
+    scroll-snap-align: none;
+  }
+  
   .image {
     object-fit: contain;
     max-width: 312px;

@@ -16,3 +16,7 @@ export interface ISlideButtonProps {
   format: string
   onClick: () => void
 }
+
+export interface IIconProps {
+  color: string
+}

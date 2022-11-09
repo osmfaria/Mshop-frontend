@@ -26,7 +26,7 @@ export const Container = styled.div`
   .products-section {
     padding-left: 23px;
 
-    @media (min-width: 500px) {
+    @media (min-width: 900px) {
       padding-left: 60px;
     }
   }
@@ -51,6 +51,7 @@ export const Container = styled.div`
     gap: 48px;
     overflow-x: scroll;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     &::-webkit-scrollbar {
       display: none;
     }

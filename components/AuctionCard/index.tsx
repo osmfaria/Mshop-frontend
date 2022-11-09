@@ -3,21 +3,18 @@ import { CardProp } from '../../interfaces/publicationsInterface'
 import { Container } from './styles'
 import { BsArrowRight } from 'react-icons/bs'
 import { FiClock } from 'react-icons/fi'
-import { IconContext } from 'react-icons'
 import UserIcon from '../UserIcon'
 import { getCurrency } from '../../functions/currency'
 
-const AuctionCard = ({ publication }: CardProp): ReactElement => {
+const AuctionCard = ({ publication, innerRef }: CardProp): ReactElement => {
   const price = getCurrency(publication.price)
 
   return (
-    <Container image={publication.Image[0].link}>
+    <Container image={publication.Image[0].link} ref={innerRef}>
       <div className='box-cover'>
         <div className='box-clock'>
-          <IconContext.Provider value={{ className: 'clock-icon' }}>
-            <FiClock size={20} />
-          </IconContext.Provider>
-          01:58:00
+          <FiClock size={20} />
+          <span className='clock-time'>01:58:00</span>
         </div>
 
         <section className='box-card_details'>
@@ -38,9 +35,7 @@ const AuctionCard = ({ publication }: CardProp): ReactElement => {
       </div>
 
       <div className='box-link'>
-        <button>
-          Go to auction
-        </button>
+        <button>Go to auction</button>
         <button>
           <BsArrowRight size={30} />
         </button>

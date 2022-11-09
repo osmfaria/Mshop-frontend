@@ -9,7 +9,12 @@ export const Container = styled.div<StyledProps>`
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  max-width: 735px;
+  scroll-snap-align: center;
+  
+  max-width: calc(100vw - 40px);
+  @media (min-width: 900px) {
+    max-width: 735px;
+  }
 
   .box-cover {
     border-radius: 4px 4px 0 0;
@@ -31,8 +36,9 @@ export const Container = styled.div<StyledProps>`
       align-items: center;
       padding: 0 16px 0 8px;
       font-family: 'Lexend';
-      .clock-icon {
-        color: ${(props) => props.theme.colors.brand1};
+      color: ${(props) => props.theme.colors.brand1};
+      .clock-time {
+        color: ${(props) => props.theme.colors.grey1};
       }
     }
 

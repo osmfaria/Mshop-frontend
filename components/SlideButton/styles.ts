@@ -20,7 +20,7 @@ export const StyledButton = styled.button<ISlideButtonProps>`
   bottom: 0;
   right: ${(props) => (props.format === 'forward' ? '10px' : 100)};
 
-  @media (max-width: 900) {
+  @media (max-width: 900px) {
     display: none;
   }
 `

@@ -3,7 +3,6 @@ import { motorsApi } from '../../services/api'
 import { createContext, useContext, useState } from 'react'
 import {
   ChildrenProp,
-  PublicationProviderProp,
   PublicationTypeProviderProp
 } from '../../interfaces/contextInterface'
 import { Publication } from '../../interfaces/publicationsInterface'
@@ -13,9 +12,6 @@ const PublicationContext = createContext<PublicationTypeProviderProp>(
 )
 
 export const PublicationProvider = ({ children }: ChildrenProp) => {
-  // const [loading, setLoading] = useState<boolean>(true)
-  // const [publications, setPublications] = useState<Publication[]>([])
-  // const [hasMore, setHasMore] = useState<boolean>(false)
 
   const [carLoading, setCarLoading] = useState<boolean>(true)
   const [carPublications, setCarPublications] = useState<Publication[]>([])
@@ -25,16 +21,6 @@ export const PublicationProvider = ({ children }: ChildrenProp) => {
   const [motoPublications, setMotoPublications] = useState<Publication[]>([])
   const [motoHasMore, setMotoHasMore] = useState<boolean>(false)
 
-  // const getPublications = (pageNumber: number): void => {
-  //   motorsApi.get(`/publications/?page=${pageNumber}&limit=3`).then((res) => {
-  //     setPublications((prevPublications) => [
-  //       ...prevPublications,
-  //       ...res.data.results,
-  //     ])
-  //     setHasMore(res.data.nextPage)
-  //     setLoading(false)
-  //   })
-  // }
 
   const getPublicationsByCar = (pageNumber: number): void => {
     motorsApi
@@ -62,7 +48,6 @@ export const PublicationProvider = ({ children }: ChildrenProp) => {
 
   return (
     <PublicationContext.Provider
-      // value={{ getPublications, publications, setLoading, loading, hasMore }}
       value={{
         getPublicationsByCar,
         carPublications,
