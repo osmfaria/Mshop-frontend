@@ -1,11 +1,9 @@
-import { ReactElement, RefObject, useEffect } from 'react'
-import AuctionCard from '../components/AuctionCard'
+import { ReactElement, RefObject } from 'react'
 import Button from '../components/Button'
 import { Container } from '../styles/home'
 import { useRef } from 'react'
 import { usePublication } from '../providers/publications'
 import Carousel from '../components/Carousel'
-import SkeletonCard from '../components/SkeletonCard'
 
 export default function Home(): ReactElement {
   const auctionSection = useRef<HTMLDivElement>(null)
@@ -59,14 +57,6 @@ export default function Home(): ReactElement {
         </div>
       </div>
       <div className='products-section' ref={auctionSection}>
-        {/* <div className='products-display'>
-          <h2>Auction</h2>
-          <div className='carousel'>
-            {carPublications.map((publication, index) => (
-              <AuctionCard key={index} publication={publication} />
-            ))}
-          </div>
-        </div> */}
         <Carousel
           setLoading={setCarLoading}
           getPublications={getPublicationsByCar}
@@ -76,7 +66,6 @@ export default function Home(): ReactElement {
           innerRef={carSection}
           title='Auction'
         />
-
         <Carousel
           setLoading={setCarLoading}
           getPublications={getPublicationsByCar}

@@ -4,10 +4,14 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { CardProp } from '../../interfaces/cardInterface'
 import { ContainerPublication, ContainerAuction } from './styles'
 
-const SkeletonCard = ({cardType}: CardProp):ReactElement => {
+const SkeletonCard = ({ cardType }: CardProp): ReactElement => {
   return (
     <>
-      {cardType === 'publication' ? (
+      {cardType === 'Auction' ? (
+        <ContainerAuction>
+          <Skeleton className='auction' />
+        </ContainerAuction>
+      ) : (
         <ContainerPublication>
           <Skeleton className='skeleton-image' />
           <h6>
@@ -32,10 +36,6 @@ const SkeletonCard = ({cardType}: CardProp):ReactElement => {
             <Skeleton className='price' />
           </div>
         </ContainerPublication>
-      ) : (
-        <ContainerAuction>
-          <Skeleton className='auction'/>
-        </ContainerAuction>
       )}
     </>
   )

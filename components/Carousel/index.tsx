@@ -28,6 +28,7 @@ const Carousel = ({
 
   useEffect(() => {
     setLoading(true)
+    // Avoid to double fetch publications while auctions are not implemented
     if (title !== 'Auction') getPublications(pageNumber)
   }, [pageNumber])
 
@@ -50,28 +51,53 @@ const Carousel = ({
   }
 
   return (
-    <>
-      {title === 'Auction' ? (
-        <div className='products-display'>
-          <h2>{title}</h2>
-          <div className='carousel' ref={scrollSection}>
-
-            {publications.length === 0 ? [...Array(11)].map((el, index) => <SkeletonCard key={index} cardType='auction'/>) : publications.map((publication: Publication, index: number) => {
+    <div className='products-display' ref={innerRef}>
+      <h2>{title}</h2>
+      <div className='carousel' id='cars' ref={scrollSection}>
+        {publications.length === 0
+          ? // Skeleton Cards - loading
+            [...Array(11)].map((el, index) => (
+              <SkeletonCard key={index} cardType={title} />
+            ))
+          : // Cards for data Fetched
+            publications.map((publication: Publication, index: number) => {
               if (publications.length === index + 1) {
                 return (
-                  <AuctionCard
-                    innerRef={lastPublicationElementRef}
-                    key={publication.id}
-                    publication={publication}
-                  />
+                  <>
+                    {title === 'Auction' ? (
+                      <AuctionCard
+                        innerRef={lastPublicationElementRef}
+                        key={publication.id}
+                        publication={publication}
+                      />
+                    ) : (
+                      <PublicationCard
+                        innerRef={lastPublicationElementRef}
+                        key={publication.id}
+                        publication={publication}
+                      />
+                    )}
+                  </>
                 )
               } else {
-                return <AuctionCard key={index} publication={publication} />
+                return (
+                  <>
+                    {title === 'Auction' ? (
+                      <AuctionCard key={index} publication={publication} />
+                    ) : (
+                      <PublicationCard key={index} publication={publication} />
+                    )}
+                  </>
+                )
               }
             })}
+      </div>
 
-
-          </div>
+      {publications.length === 0 ? (
+        <></>
+      ) : (
+        <>
+          {' '}
           <SlideButton
             format='back'
             onClick={() => slide(-1800, scrollSection)}
@@ -80,51 +106,9 @@ const Carousel = ({
             format='forward'
             onClick={() => slide(1800, scrollSection)}
           />
-        </div>
-      ) : (
-        <div className='products-display' ref={innerRef}>
-          <h2>{title}</h2>
-          <div className='carousel' id='cars' ref={scrollSection}>
-
-            {publications.length === 0
-            // Skeleton Cards
-              ? [...Array(11)].map((el, index) => <SkeletonCard key={index} cardType='publication'/>)
-            // Data Fetched
-              : publications.map((publication: Publication, index: number) => {
-                  if (publications.length === index + 1) {
-                    return (
-                      <PublicationCard
-                        innerRef={lastPublicationElementRef}
-                        key={publication.id}
-                        publication={publication}
-                      />
-                    )
-                  } else {
-                    return (
-                      <PublicationCard key={index} publication={publication} />
-                    )
-                  }
-                })}
-          </div>
-
-          {publications.length !== 0 ? (
-            <>
-              {' '}
-              <SlideButton
-                format='back'
-                onClick={() => slide(-1800, scrollSection)}
-              />
-              <SlideButton
-                format='forward'
-                onClick={() => slide(1800, scrollSection)}
-              />
-            </>
-          ) : (
-            <></>
-          )}
-        </div>
+        </>
       )}
-    </>
+    </div>
   )
 }
 
