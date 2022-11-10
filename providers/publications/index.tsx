@@ -12,7 +12,6 @@ const PublicationContext = createContext<PublicationTypeProviderProp>(
 )
 
 export const PublicationProvider = ({ children }: ChildrenProp) => {
-
   const [carLoading, setCarLoading] = useState<boolean>(true)
   const [carPublications, setCarPublications] = useState<Publication[]>([])
   const [carHasMore, setCarHasMore] = useState<boolean>(false)

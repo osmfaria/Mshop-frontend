@@ -10,6 +10,7 @@ import { PublicationProviderProp } from '../../interfaces/contextInterface'
 import { Publication } from '../../interfaces/publicationsInterface'
 import AuctionCard from '../AuctionCard'
 import PublicationCard from '../PublicationCard'
+import SkeletonCard from '../SkeletonCard'
 import SlideButton from '../SlideButton'
 
 const Carousel = ({
@@ -27,7 +28,8 @@ const Carousel = ({
 
   useEffect(() => {
     setLoading(true)
-    getPublications(pageNumber)
+    // Avoid to double fetch publications while auctions are not implemented
+    if (title !== 'Auction') getPublications(pageNumber)
   }, [pageNumber])
 
   const lastPublicationElementRef = useCallback(
@@ -47,53 +49,55 @@ const Carousel = ({
   const slide = (shift: number, section: RefObject<HTMLDivElement>): void => {
     section.current!.scrollLeft += shift
   }
+
   return (
-    <>
-      {title === 'Auction' ? (
-        <div className='products-display'>
-          <h2>{title}</h2>
-          <div className='carousel' ref={scrollSection}>
-            {publications.map((publication: Publication, index: number) => {
+    <div className='products-display' ref={innerRef}>
+      <h2>{title}</h2>
+      <div className='carousel' id='cars' ref={scrollSection}>
+        {publications.length === 0
+          ? // Skeleton Cards - loading
+            [...Array(11)].map((el, index) => (
+              <SkeletonCard key={index} cardType={title} />
+            ))
+          : // Cards for data Fetched
+            publications.map((publication: Publication, index: number) => {
               if (publications.length === index + 1) {
                 return (
-                  <AuctionCard
-                    innerRef={lastPublicationElementRef}
-                    key={publication.id}
-                    publication={publication}
-                  />
+                  <>
+                    {title === 'Auction' ? (
+                      <AuctionCard
+                        innerRef={lastPublicationElementRef}
+                        key={publication.id}
+                        publication={publication}
+                      />
+                    ) : (
+                      <PublicationCard
+                        innerRef={lastPublicationElementRef}
+                        key={publication.id}
+                        publication={publication}
+                      />
+                    )}
+                  </>
                 )
               } else {
-                return <AuctionCard key={index} publication={publication} />
+                return (
+                  <>
+                    {title === 'Auction' ? (
+                      <AuctionCard key={index} publication={publication} />
+                    ) : (
+                      <PublicationCard key={index} publication={publication} />
+                    )}
+                  </>
+                )
               }
             })}
-          </div>
-          <SlideButton
-            format='back'
-            onClick={() => slide(-1800, scrollSection)}
-          />
-          <SlideButton
-            format='forward'
-            onClick={() => slide(1800, scrollSection)}
-          />
-        </div>
+      </div>
+
+      {publications.length === 0 ? (
+        <></>
       ) : (
-        <div className='products-display' ref={innerRef}>
-          <h2>{title}</h2>
-          <div className='carousel' id='cars' ref={scrollSection}>
-            {publications.map((publication: Publication, index: number) => {
-              if (publications.length === index + 1) {
-                return (
-                  <PublicationCard
-                    innerRef={lastPublicationElementRef}
-                    key={publication.id}
-                    publication={publication}
-                  />
-                )
-              } else {
-                return <PublicationCard key={index} publication={publication} />
-              }
-            })}
-          </div>
+        <>
+          {' '}
           <SlideButton
             format='back'
             onClick={() => slide(-1800, scrollSection)}
@@ -102,9 +106,9 @@ const Carousel = ({
             format='forward'
             onClick={() => slide(1800, scrollSection)}
           />
-        </div>
+        </>
       )}
-    </>
+    </div>
   )
 }
 
