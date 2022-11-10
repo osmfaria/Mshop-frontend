@@ -1,10 +1,11 @@
-import { ReactElement, RefObject } from 'react'
+import { ReactElement, RefObject, useEffect } from 'react'
 import AuctionCard from '../components/AuctionCard'
 import Button from '../components/Button'
 import { Container } from '../styles/home'
 import { useRef } from 'react'
 import { usePublication } from '../providers/publications'
 import Carousel from '../components/Carousel'
+import SkeletonCard from '../components/SkeletonCard'
 
 export default function Home(): ReactElement {
   const auctionSection = useRef<HTMLDivElement>(null)

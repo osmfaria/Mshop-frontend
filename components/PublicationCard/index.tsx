@@ -5,22 +5,26 @@ import Image from 'next/image'
 import UserIcon from '../UserIcon'
 import { getCurrency } from '../../functions/currency'
 
-const PublicationCard = ({ publication, innerRef }: CardProp): ReactElement => {
+const PublicationCard = ({
+  publication,
+  innerRef,
+}: CardProp): ReactElement => {
   const loader = () => publication.Image[0].link
-  
+
   const price = getCurrency(publication.price)
 
   return (
     <Container ref={innerRef}>
-      <Image
-        loader={loader}
-        src='teste'
-        alt='publication poster'
-        className='image'
-        fill
-        sizes='312px'
-        loading='lazy'
-      />
+        <Image
+          loader={loader}
+          src='teste'
+          alt='publication poster'
+          className='image'
+          height={152}
+          width={312}
+          sizes='312px'
+          loading='lazy'
+        />
       <h6>{publication.title}</h6>
       <p className='description'>{publication.description}</p>
 

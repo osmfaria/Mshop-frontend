@@ -6,18 +6,18 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 16px;
   max-width: 312px;
-  padding-top: 152px;
   flex-shrink: 0;
   scroll-snap-align: center;
 
   @media (min-width: 500px) {
     scroll-snap-align: none;
   }
-  
+
   .image {
     object-fit: contain;
     max-width: 312px;
     max-height: 152px;
+    transition: 2s;
   }
 
   h6 {
