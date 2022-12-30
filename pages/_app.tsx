@@ -4,15 +4,27 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from '../styles/theme'
 import Layout from '../components/Layout'
 import Providers from '../providers'
+import { useState } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { SessionProvider } from 'next-auth/react'
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: {session, ...pageProps} }: AppProps) {
+  const [queryClient] = useState(() => new QueryClient())
+
   return (
-    <ThemeProvider theme={theme}>
-        <Layout>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <SessionProvider session={session}>
           <Providers>
-            <Component {...pageProps} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+            <ToastContainer />
           </Providers>
-        </Layout>
-    </ThemeProvider>
+        </SessionProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }

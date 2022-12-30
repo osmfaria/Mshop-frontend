@@ -18,6 +18,25 @@ export const Container = styled.div`
     max-width: 312px;
     max-height: 152px;
     transition: 2s;
+    cursor: pointer;
+  }
+
+  .status {
+    position: absolute;
+    top: 11px;
+    left: 16px;
+    line-height: 24px;
+    color: ${(props) => props.theme.colors.whiteFixed};
+    padding: 0 8px;
+    font-weight: 500;
+  }
+
+  .status--active {
+    background-color: ${(props) => props.theme.colors.brand1};
+  }
+
+  .status--inactive {
+    background-color: ${(props) => props.theme.colors.grey4};
   }
 
   h6 {
@@ -25,6 +44,7 @@ export const Container = styled.div`
     font-weight: 600;
     color: ${(props) => props.theme.colors.grey1};
     line-height: 20px;
+    cursor: pointer;
   }
 
   .description {
@@ -43,6 +63,7 @@ export const Container = styled.div`
   .box-user {
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     .username {
       margin-left: 8px;
@@ -52,6 +73,7 @@ export const Container = styled.div`
   }
 
   .box-car_details {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     min-height: 28px;
@@ -70,5 +92,9 @@ export const Container = styled.div`
       font-weight: 500;
       color: ${(props) => props.theme.colors.grey1};
     }
+  }
+
+  button {
+    align-self: flex-start;
   }
 `

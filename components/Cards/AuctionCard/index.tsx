@@ -1,10 +1,10 @@
 import { ReactElement } from 'react'
-import { CardProp } from '../../interfaces/publicationsInterface'
+import { CardProp } from '../../../interfaces/publicationsInterface'
 import { Container } from './styles'
 import { BsArrowRight } from 'react-icons/bs'
 import { FiClock } from 'react-icons/fi'
-import UserIcon from '../UserIcon'
-import { getCurrency } from '../../functions/currency'
+import UserIcon from '../../UserIcon'
+import { getCurrency } from '../../../functions/currency'
 
 const AuctionCard = ({ publication, innerRef }: CardProp): ReactElement => {
   const price = getCurrency(publication.price)

@@ -3,9 +3,33 @@ export declare type Image = {
   link: string
 }
 
+export interface UserIconProp {
+  name: string | null | undefined
+  size?: string
+}
+
 export interface UserProp {
   name: string
+  description?: string
 }
+
+export declare type Comment = {
+  id: string
+  description: string
+  createdAt: Date
+  updatedAt: Date
+  userId: string
+  publicationId: string
+  user: {name: string}
+}
+
+export declare type IComment = {
+  pageCount: number
+  previousPage: string | null
+  nextPage: string | null
+  results: Comment[]
+}
+
 
 export declare type Publication = {
   id: string
@@ -20,8 +44,9 @@ export declare type Publication = {
   createdAt: string
   updatedAt: string
   userId: string
-  Image: Image[]
   user: UserProp
+  Comment: Comment[]
+  Image: Image[]
 }
 
 export declare type IPublication = {

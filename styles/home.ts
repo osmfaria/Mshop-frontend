@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   .banner {
-    padding: 80px 0 160px;
+    padding: 80px 10px 160px;
     text-align: center;
     background-color: ${(props) => props.theme.colors.brand2};
     color: ${(props) => props.theme.colors.brand4};
@@ -18,8 +18,14 @@ export const Container = styled.div`
     .btn-group {
       margin-top: 48px;
       display: flex;
-      justify-content: center;
       gap: 20px;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 500px;
+      margin: 48px auto 0;
+      @media (min-width: 480px) {
+        flex-direction: row;
+      }
     }
   }
 
@@ -28,32 +34,6 @@ export const Container = styled.div`
 
     @media (min-width: 900px) {
       padding-left: 60px;
-    }
-  }
-
-  .products-display {
-    padding: 100px 0;
-    margin: 0 auto;
-    position: relative;
-
-    h2 {
-      font-weight: 600;
-      color: ${(props) => props.theme.colors.grey1};
-      font-size: 24px;
-      line-height: 30px;
-      margin-bottom: 63px;
-    }
-  }
-
-  .carousel {
-    padding: 23px 0 16px;
-    display: flex;
-    gap: 48px;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    &::-webkit-scrollbar {
-      display: none;
     }
   }
 `

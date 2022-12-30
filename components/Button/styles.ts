@@ -106,6 +106,7 @@ const hoverBorderColors: IButtonStyle<string> = {
 }
 
 export const StyledButton = styled.button<IButtonProps>`
+  flex-grow: 1;
   padding: ${(props) => props.theme.button[props.size].padding};
   font-size: ${(props) => props.theme.button[props.size].fontSize};
   background-color: ${({ design }) => backgroundColors[design]};

@@ -5,7 +5,7 @@ export interface IButtonProps {
   size: string
   children: ReactNode
   onClick?: () => void
-  rest?: string[]
+  [rest:string]: any
 }
 
 export interface IButtonStyle<StyleValue> {
@@ -19,4 +19,5 @@ export interface ISlideButtonProps {
 
 export interface IIconProps {
   color: string
+  size: string
 }

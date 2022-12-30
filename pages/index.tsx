@@ -1,8 +1,8 @@
 import { ReactElement, RefObject } from 'react'
-import Button from '../components/Button'
 import { Container } from '../styles/home'
 import { useRef } from 'react'
 import { usePublication } from '../providers/publications'
+import Button from '../components/Button'
 import Carousel from '../components/Carousel'
 
 export default function Home(): ReactElement {
@@ -10,7 +10,7 @@ export default function Home(): ReactElement {
   const carSection = useRef<HTMLDivElement>(null)
   const motorcycleSection = useRef<HTMLDivElement>(null)
 
-  const onCarButtonClick = (ref: RefObject<HTMLDivElement>) => {
+  const handleClick = (ref: RefObject<HTMLDivElement>) => {
     ref?.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -36,21 +36,21 @@ export default function Home(): ReactElement {
           <Button
             size='bg'
             design='outlineLight'
-            onClick={() => onCarButtonClick(auctionSection)}
+            onClick={() => handleClick(auctionSection)}
           >
             Auction
           </Button>
           <Button
             size='bg'
             design='outlineLight'
-            onClick={() => onCarButtonClick(carSection)}
+            onClick={() => handleClick(carSection)}
           >
             Cars
           </Button>
           <Button
             size='bg'
             design='outlineLight'
-            onClick={() => onCarButtonClick(motorcycleSection)}
+            onClick={() => handleClick(motorcycleSection)}
           >
             Bikes
           </Button>
@@ -63,7 +63,7 @@ export default function Home(): ReactElement {
           publications={carPublications}
           loading={carLoading}
           hasMore={carHasMore}
-          innerRef={carSection}
+          innerRef={auctionSection}
           title='Auction'
         />
         <Carousel
