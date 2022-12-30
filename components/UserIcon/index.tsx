@@ -1,13 +1,17 @@
 import { Container } from './styles'
-import { UserProp } from '../../interfaces/publicationsInterface'
-import { ReactElement } from 'react'
+import { UserIconProp } from '../../interfaces/publicationsInterface'
+import { ReactElement, useEffect, useState } from 'react'
 
-const UserIcon = ({ name }: UserProp): ReactElement => {
-  const randomNumber = Math.floor(Math.random() * 12) + 1
-  const randomColor = `random${randomNumber}`
+const UserIcon = ({ name, size='sm' }: UserIconProp): ReactElement => {
+  const [randomColor, setRandomColor] = useState('1')
+
+  useEffect(() => {
+    const randomNumber = Math.floor(Math.random() * 12) + 1
+    setRandomColor(`random${randomNumber}`)
+  }, [])
 
   const getInitials = (): string => {
-    const initials = name
+    const initials = name!
       .split(' ')
       .map((n) => n[0])
       .join('')
@@ -15,9 +19,14 @@ const UserIcon = ({ name }: UserProp): ReactElement => {
 
     return initials.toUpperCase()
   }
+
   const initials = getInitials()
 
-  return <Container color={randomColor}>{initials}</Container>
+  return (
+    <Container color={randomColor} size={size}>
+      <span>{initials}</span>
+    </Container>
+  )
 }
 
 export default UserIcon

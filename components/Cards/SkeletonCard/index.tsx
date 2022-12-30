@@ -1,7 +1,7 @@
 import { ReactElement } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { CardProp } from '../../interfaces/cardInterface'
+import { CardProp } from '../../../interfaces/cardInterface'
 import { ContainerPublication, ContainerAuction } from './styles'
 
 const SkeletonCard = ({ cardType }: CardProp): ReactElement => {
