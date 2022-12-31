@@ -14,9 +14,10 @@ export const CartProvider = ({ children }: ChildrenProp) => {
   const [cartTotal, setCartTotal] = useState<number>(0)
 
   useEffect(() => {
-    const initialState =
-      JSON.parse(localStorage.getItem('@MotorShop:cart') || '') || []
-    setCart(initialState)
+    // const initialState = []
+      // JSON.parse(localStorage.getItem('@MotorShop:cart') || '') || 
+
+    setCart([])
   }, [])
 
   const addToCart = (product: Publication) => {
@@ -29,10 +30,10 @@ export const CartProvider = ({ children }: ChildrenProp) => {
     } else {
       const updatedProductList = [...cart, product]
 
-      localStorage.setItem(
-        '@MotorShop:cart',
-        JSON.stringify(updatedProductList)
-      )
+      // localStorage.setItem(
+      //   '@MotorShop:cart',
+      //   JSON.stringify(updatedProductList)
+      // )
 
       setCart(updatedProductList)
       toast.success('Item has been added to your cart', {
