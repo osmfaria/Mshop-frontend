@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/osmfaria/Mshop-frontend)](https://img.shields.io/github/package-json/v/osmfaria/Mshop-frontend)
+ 
+# :shopping: Mshop
 
-## Getting Started
+This is the frontend of an ecommerce created to allow users to buy and sell cars and motorcycles. 
 
-First, run the development server:
+> Check the deployed [app](https://mshop-ecommerce.vercel.app/).
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## :toolbox: Tools required
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Docker :whale2:;
+- You might also consider using [Postman](https://www.postman.com/downloads/) or [Insomnia](https://insomnia.rest/download) to send API requests.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## 📋 Instalation guide
 
-To learn more about Next.js, take a look at the following resources:
+- Clone this repo;
+- On the root folder execute `docker compose up`;
+- Once the container is up and running, the configured port is 5000, check it running on `http://localhost:5000/api-docs/`
+- Send requests `to http://localhost:5000/***` based on the [docs](https://motors-ecommerce-api.herokuapp.com/api-docs/).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💻 Tech stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" /> <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" /> <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" /> <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" /> <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  
+## ER Diagram
 
-## Deploy on Vercel
+<img src="./src/assets/diagram.png" />
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔗 Links
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- App frontend [repo](https://github.com/osmfaria/Mshop-frontend);
+
+> Link for deployed [API](https://motors-ecommerce-api.herokuapp.com/) \
+> Check the [documentation](https://motors-ecommerce-api.herokuapp.com/api-docs/) for proper use
+
+## :memo: License
+
+[MIT](./LICENSE)
