@@ -6,20 +6,18 @@ This is the frontend of an ecommerce created to allow users to buy and sell cars
 
 > Check the deployed [app](https://mshop-ecommerce.vercel.app/).
 
-
-
-## :toolbox: Tools required
-
-- Docker :whale2:;
-- You might also consider using [Postman](https://www.postman.com/downloads/) or [Insomnia](https://insomnia.rest/download) to send API requests.
-
+💭 Cool features:\
+\
+:heavy_check_mark: horizontal infinite scroll for publications\
+:heavy_check_mark: vertical infinite scroll for comments made on the publicaton page
 
 ## 📋 Instalation guide
 
 - Clone this repo;
-- On the root folder execute `docker compose up`;
-- Once the container is up and running, the configured port is 5000, check it running on `http://localhost:5000/api-docs/`
-- Send requests `to http://localhost:5000/***` based on the [docs](https://motors-ecommerce-api.herokuapp.com/api-docs/).
+- On the root folder execute `npm run dev`;
+- Check the applicaton running on `http://localhost:3000/`
+
+
 
 ## 💻 Tech stack
 
