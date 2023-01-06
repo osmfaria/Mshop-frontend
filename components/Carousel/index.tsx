@@ -3,6 +3,7 @@ import {
   ReactElement,
   RefObject,
   useCallback,
+  useEffect,
   useRef,
   useState,
 } from 'react'
@@ -29,7 +30,13 @@ const Carousel = ({
   const scrollSection = useRef<HTMLDivElement>(null)
   const observer = useRef<IntersectionObserver>()
 
-  useEffectAfterMount(() => {
+  // useEffectAfterMount(() => {
+  //   setLoading(true)
+  //   if (title === 'Publications') getPublications(pageNumber, userId)
+  //   else if (title !== 'Auction') getPublications(pageNumber)
+  // }, [pageNumber])
+
+  useEffect(() => {
     setLoading(true)
     if (title === 'Publications') getPublications(pageNumber, userId)
     else if (title !== 'Auction') getPublications(pageNumber)
