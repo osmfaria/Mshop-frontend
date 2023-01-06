@@ -25,6 +25,13 @@ This is the frontend of an ecommerce created to allow users to buy and sell cars
   <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /> <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" /> <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" /> 
   
 
+
+## 💡 Upcoming updates:
+
+- [ ] Backend cart;
+- [ ] Auction functionality.
+ 
+
 ## 🔗 Links
 
 - App backend [repo](https://github.com/osmfaria/Mshop-backend);
