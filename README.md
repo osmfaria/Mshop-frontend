@@ -21,7 +21,7 @@ This is the frontend of an ecommerce created to allow users to buy and sell cars
 
 ## 💻 Tech stack
 
-  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /> <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" /> <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" /> <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" /> <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /> <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" /> <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" /> 
   
 ## ER Diagram
 
@@ -29,10 +29,9 @@ This is the frontend of an ecommerce created to allow users to buy and sell cars
 
 ## 🔗 Links
 
-- App frontend [repo](https://github.com/osmfaria/Mshop-frontend);
-
-> Link for deployed [API](https://motors-ecommerce-api.herokuapp.com/) \
-> Check the [documentation](https://motors-ecommerce-api.herokuapp.com/api-docs/) for proper use
+- App backend [repo](https://github.com/osmfaria/Mshop-backend);
+- [API](https://motors-ecommerce-api.herokuapp.com/) \
+- API [documentation](https://motors-ecommerce-api.herokuapp.com/api-docs/) 
 
 ## :memo: License
 
