@@ -5,6 +5,7 @@
 This is the frontend of an ecommerce created to allow users to buy and sell cars and motorcycles. 
 
 > Check the deployed [app](https://mshop-ecommerce.vercel.app/).
+<img src="./public/app-design.png" />
 
 💭 Cool features:\
 \
