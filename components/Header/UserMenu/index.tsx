@@ -4,7 +4,6 @@ import OutsideClickHandler from 'react-outside-click-handler'
 import UserIcon from '../../UserIcon'
 import { useState } from 'react'
 import { signOut, useSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -29,16 +28,16 @@ const Menu = () => {
           <DropDown>
             <nav className='panel'>
               <Link href='/dashboard' onClick={handleClick}>
-                <ul>Dashboard</ul>
+                Dashboard
               </Link>
               <Link href='/profile' onClick={handleClick}>
-                <ul>Profile</ul>
+                Profile
               </Link>
               <Link href='/cart' onClick={handleClick}>
-                <ul>Cart</ul>
+                Cart
               </Link>
               <Link href='#' onClick={() => signOut({ callbackUrl: '/' })}>
-                <ul>Logout</ul>
+                Logout
               </Link>
             </nav>
           </DropDown>

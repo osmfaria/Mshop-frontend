@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 const Menu = () => {
   const { isHamburgerOpen, handleHamburgerModal, setIsHamburgerOpen } =
     useModalController()
-    
+
   const { data: session } = useSession()
   const router = useRouter()
 
@@ -37,13 +37,13 @@ const Menu = () => {
           <DropDown>
             <nav className='upper-panel'>
               <Link href='/#Auction' onClick={handleHamburgerModal}>
-                <ul>Auction</ul>
+                Auction
               </Link>
               <Link href='/#Cars' onClick={handleHamburgerModal}>
-                <ul>Cars</ul>
+                Cars
               </Link>
               <Link href='/#Motorcycle' onClick={handleHamburgerModal}>
-                <ul>Motorcycle</ul>
+                Motorcycle
               </Link>
             </nav>
             <nav className='lower-panel'>
@@ -57,26 +57,26 @@ const Menu = () => {
                 >
                   <div className='collapsible'>
                     <Link href='/dashboard' onClick={handleHamburgerModal}>
-                      <ul>Dashboard</ul>
+                      Dashboard
                     </Link>
                     <Link href='/profile' onClick={handleHamburgerModal}>
-                      <ul>Profile</ul>
+                      Profile
                     </Link>
                     <Link href='/cart' onClick={handleHamburgerModal}>
-                      <ul>Cart</ul>
+                      Cart
                     </Link>
                     <Link
                       href='#'
                       onClick={() => signOut({ callbackUrl: '/' })}
                     >
-                      <ul>Logout</ul>
+                      Logout
                     </Link>
                   </div>
                 </Collapsible>
               ) : (
                 <>
                   <Link href='/login' onClick={handleHamburgerModal}>
-                    <ul>Login</ul>
+                    Login
                   </Link>
                   <Button
                     size='bg'

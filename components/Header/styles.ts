@@ -32,13 +32,10 @@ export const Container = styled.div`
     @media (min-width: 900px) {
       display: flex;
     }
-
-    ul {
-      height: 100%;
-    }
   }
 
   .nav-section-end {
+    height: 100%;
     border-right: 2px solid ${props => props.theme.colors.grey6};
   }
 `

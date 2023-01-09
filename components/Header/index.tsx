@@ -8,7 +8,7 @@ import { useSession } from 'next-auth/react'
 
 const Header = () => {
   const router = useRouter()
-  const {data: session} = useSession()
+  const { data: session } = useSession()
 
   return (
     <Container>
@@ -19,24 +19,16 @@ const Header = () => {
       </Link>
       <Menu />
       <nav>
-        <Link href='/#Cars'>
-          <ul>Cars</ul>
-        </Link>
-        <Link href='/#Motorcycle'>
-          <ul>Motorcycles</ul>
-        </Link>
-        <Link href='/#Auction'>
-          <ul>Auction</ul>
-        </Link>
-        <ul className='nav-section-end'></ul>
+        <Link href='/#Cars'>Cars</Link>
+        <Link href='/#Motorcycle'>Motorcycles</Link>
+        <Link href='/#Auction'>Auction</Link>
+        <div className='nav-section-end'></div>
 
         {!!session ? (
           <UserMenu />
         ) : (
           <>
-            <Link href='/login'>
-              <ul>Login</ul>
-            </Link>
+            <Link href='/login'>Login</Link>
             <Button
               size='md'
               design='outline2'
