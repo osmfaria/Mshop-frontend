@@ -7,7 +7,8 @@ export function RequireAuthentication(gssp: GetServerSideProps) {
     const token = nookies.get(ctx)
 
     if (
-      !token['__Secure-next-auth.session-token']
+      !token['__Secure-next-auth.session-token'] &&
+      !token['next-auth.session-token']
     ) {
       return {
         redirect: {

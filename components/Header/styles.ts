@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   height: 80px;
@@ -7,6 +7,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid ${(props) => props.theme.colors.grey6};
+  background-color: ${(props) => props.theme.colors.grey10};
+  color: ${(props) => props.theme.colors.grey0};
+  font-weight: 500;
 
   @media (min-width: 760px) {
     padding: 0 60px;
@@ -36,6 +39,6 @@ export const Container = styled.div`
 
   .nav-section-end {
     height: 100%;
-    border-right: 2px solid ${props => props.theme.colors.grey6};
+    border-right: 2px solid ${(props) => props.theme.colors.grey6};
   }
 `

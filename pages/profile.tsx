@@ -25,7 +25,9 @@ function Profile({ user }: UserProfileProp) {
     email: user.email,
     cpf: user.cpf,
     phone: user.phone,
-    birthdate: user.birthdate || '',
+    birthdate: user.birthdate
+      ? new Date(user.birthdate).toISOString().slice(0, 10)
+      : '',
     description: user.description || '',
     address: {
       cep: user.Address.cep,
@@ -49,9 +51,10 @@ function Profile({ user }: UserProfileProp) {
         'invalid format, example: 000.000.000-00'
       ),
     phone: yup.string().max(15),
-    birthdate: yup.date().test((value: Date | undefined): boolean => {
-      return value! < new Date()
-    }),
+    birthdate: yup
+      .date()
+      .max(new Date(), 'Birthdate must be before today.')
+      .nullable(),
     description: yup.string().max(200),
     address: yup.object({
       cep: yup.string().max(10),

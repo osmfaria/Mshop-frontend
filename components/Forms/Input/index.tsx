@@ -13,6 +13,8 @@ const Input = ({ label, name, isProfile = false, ...rest }: InputProps) => {
     setIsEditing(!isEditing)
   }
 
+  console.log(rest)
+
   return (
     <Container>
       <OutsideClickHandler

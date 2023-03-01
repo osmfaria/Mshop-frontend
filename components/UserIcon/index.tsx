@@ -1,29 +1,33 @@
 import { Container } from './styles'
 import { UserIconProp } from '../../interfaces/publicationsInterface'
-import { ReactElement, useEffect, useState } from 'react'
+import { ReactElement, useState } from 'react'
 
-const UserIcon = ({ name, size='sm' }: UserIconProp): ReactElement => {
-  const [randomColor, setRandomColor] = useState('1')
+const colorMap = new Map<string, string>()
 
-  useEffect(() => {
-    const randomNumber = Math.floor(Math.random() * 12) + 1
-    setRandomColor(`random${randomNumber}`)
-  }, [])
+function getInitials(name: string): string {
+  return name!
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase()
+}
 
-  const getInitials = (): string => {
-    const initials = name!
-      .split(' ')
-      .map((n) => n[0])
-      .join('')
-      .slice(0, 2)
+const UserIcon = ({ name, size = 'sm' }: UserIconProp): ReactElement => {
+  const [color, setColor] = useState(() => {
+    if (colorMap.has(name!)) {
+      return colorMap.get(name!)
+    } else {
+      const randomColor = `random${Math.floor(Math.random() * 12) + 1}`
+      colorMap.set(name!, randomColor)
+      return randomColor
+    }
+  })
 
-    return initials.toUpperCase()
-  }
-
-  const initials = getInitials()
+  const initials = getInitials(name!)
 
   return (
-    <Container color={randomColor} size={size}>
+    <Container color={color!} size={size}>
       <span>{initials}</span>
     </Container>
   )

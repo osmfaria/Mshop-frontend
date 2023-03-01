@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  background-color: ${(props) => props.theme.colors.grey10};
+
   .banner {
     padding: 80px 10px 160px;
     text-align: center;
@@ -31,6 +33,7 @@ export const Container = styled.div`
 
   .products-section {
     padding-left: 23px;
+    background-color: ${(props) => props.theme.colors.grey10};
 
     @media (min-width: 900px) {
       padding-left: 60px;

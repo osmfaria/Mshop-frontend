@@ -6,7 +6,6 @@ export const Container = styled.div`
   padding: 36px 26px;
   margin-top: 33px;
   position: relative;
-  
 
   @media (min-width: 760px) {
     padding: 36px 44px;
@@ -42,6 +41,7 @@ export const Container = styled.div`
       max-width: 500px;
       width: 100%;
       height: 80px;
+      background-color: ${(props) => props.theme.colors.grey10};
       &:focus {
         outline: none;
       }
@@ -51,7 +51,7 @@ export const Container = styled.div`
   button {
     margin: 24px 0 5px;
     width: 94px;
-    height: 47px; 
+    height: 47px;
 
     display: flex;
     align-items: center;

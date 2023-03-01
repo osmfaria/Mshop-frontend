@@ -13,7 +13,6 @@ import AuctionCard from '../Cards/AuctionCard'
 import PublicationCard from '../Cards/PublicationCard'
 import SkeletonCard from '../Cards/SkeletonCard'
 import SlideButton from '../SlideButton'
-import { useEffectAfterMount } from '@react-hooks-library/core'
 import { Container } from './styles'
 
 const Carousel = ({
@@ -29,12 +28,6 @@ const Carousel = ({
   const [pageNumber, setPageNumber] = useState(1)
   const scrollSection = useRef<HTMLDivElement>(null)
   const observer = useRef<IntersectionObserver>()
-
-  // useEffectAfterMount(() => {
-  //   setLoading(true)
-  //   if (title === 'Publications') getPublications(pageNumber, userId)
-  //   else if (title !== 'Auction') getPublications(pageNumber)
-  // }, [pageNumber])
 
   useEffect(() => {
     setLoading(true)
@@ -65,7 +58,7 @@ const Carousel = ({
       <div className='products-display' ref={innerRef} id={title}>
         <h2>{title}</h2>
         <div className='carousel' id='cars' ref={scrollSection}>
-          {publications.length === 0
+          {publications.length === 0 && loading
             ? // Skeleton Cards - loading
               [...Array(11)].map((el, index) => (
                 <SkeletonCard key={index} cardType={title} />

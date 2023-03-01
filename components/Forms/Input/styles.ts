@@ -19,7 +19,7 @@ export const Container = styled.div`
       color: ${(props) => props.theme.colors.grey3};
       cursor: pointer;
       :hover {
-        color: ${props => props.theme.colors.grey1};
+        color: ${(props) => props.theme.colors.grey1};
       }
     }
   }
@@ -30,6 +30,7 @@ export const Container = styled.div`
     font-size: 1rem;
     width: 100%;
     color: ${(props) => props.theme.colors.grey1};
+    background-color: ${(props) => props.theme.colors.grey10};
     border-radius: 4px;
     border: 1px solid ${(props) => props.theme.colors.grey7};
     &:focus {
