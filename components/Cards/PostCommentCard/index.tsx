@@ -8,7 +8,7 @@ import { motorsApi } from '../../../services/api'
 import { PostCommentProp } from '../../../interfaces/cardInterface'
 import { useState } from 'react'
 import useDidUpdate from '@rooks/use-did-update'
-import { Oval, ThreeDots } from 'react-loader-spinner'
+import { Oval } from 'react-loader-spinner'
 
 const PostCommentCard = ({
   publicationId,
@@ -16,7 +16,7 @@ const PostCommentCard = ({
   isFetching,
 }: PostCommentProp) => {
   const { data: session } = useSession()
-  const  [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   useDidUpdate(() => {
     if (!isFetching) setIsLoading(false)
@@ -72,6 +72,7 @@ const PostCommentCard = ({
                   className='comment'
                   placeholder='Write your commnet here...'
                   maxLength='200'
+                  disabled={!!!session}
                 />
               </div>
             </div>

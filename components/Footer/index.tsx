@@ -10,11 +10,11 @@ const Footer = (): ReactElement => {
   return (
     <Container>
       <h3>
-        <Image src='/logo-white.svg' alt='logo' height={26.34} width={153.02}/>
+        <Image src='/logo-white.svg' alt='logo' height={26.34} width={153.02} />
       </h3>
-      <p>&#xa9; {currentYear} - All rights reserved.</p>
+      <p>&#xa9; {currentYear} - Made with by ❤️ Osmar</p>
       <button onClick={scrollToTop}>
-          <IoIosArrowUp size={20}/>
+        <IoIosArrowUp size={20} />
       </button>
     </Container>
   )

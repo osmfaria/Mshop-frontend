@@ -1,12 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
-
   .products-display {
     padding: 50px 0;
     margin: 0 auto;
     position: relative;
-
     h2 {
       font-weight: 600;
       color: ${(props) => props.theme.colors.grey1};

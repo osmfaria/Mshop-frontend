@@ -14,11 +14,11 @@ const PublicationCard = ({ publication, innerRef }: CardProp): ReactElement => {
   const isProfile = router.pathname.includes('dashboard')
   const price = getCurrency(publication.price)
 
-
   const handleClick = (): Promise<boolean> =>
     router.push(`/publications/${publication.id}`)
 
-  const handleEdit = (): Promise<boolean> => router.push(`/publications/edit/${publication.id}`)
+  const handleEdit = (): Promise<boolean> =>
+    router.push(`/publications/edit/${publication.id}`)
 
   return (
     <Container ref={innerRef}>

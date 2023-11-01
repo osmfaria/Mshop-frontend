@@ -63,3 +63,21 @@ export default NextAuth({
     },
   },
 })
+
+
+  // callbacks: {
+  //   async jwt({ token, user }) {
+  //     if (user) {
+  //       return {
+  //         ...token,
+  //         accessToken: user.token,
+  //       }
+  //     }
+  //     return token
+  //   },
+  //   async session({ session, token }) {
+  //     session.accessToken = token.accessToken
+
+  //     return session
+  //   },
+  // },

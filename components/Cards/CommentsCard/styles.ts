@@ -61,6 +61,7 @@ export const Container = styled.div<Props>`
       .comment {
         word-wrap: break-word;
         padding: 10px 0 0 10px;
+        color: ${(props) => props.theme.colors.grey2};
       }
     }
 

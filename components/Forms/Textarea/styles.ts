@@ -5,7 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
   margin-bottom: 24px;
   position: relative;
-
   label {
     font-size: 0.875rem;
     font-weight: 500;
@@ -27,8 +26,8 @@ export const Container = styled.div`
   }
 
   textarea {
-  width: 100%;
-
+    background: ${(props) => props.theme.colors.grey10};
+    width: 100%;
     padding: 16px;
     font-size: 1rem;
     color: ${(props) => props.theme.colors.grey1};
